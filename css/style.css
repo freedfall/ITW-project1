@@ -1,0 +1,267 @@
+/*
+ * Login: xkinin00
+ *
+ * Doplnte sve reseni.
+ *
+ * Nezapomente pridat strucne hromadne komentare pro pravidla jednotlivych sekci
+ * a pro netrivialni useky kodu.
+ *
+ * Snazte se dodat aspon castecne reseni, i snaha se hodnoti.
+ */
+* { 
+    margin: 0;
+    padding: 0; 
+}
+/*šířka stránky se musí plynule přizpůsobit šířce okna prohlížeče:
+
+    minimální: 768px (při nižších velikostech je možné zobrazit horizontální scrollbar)
+    maximální: 1200px (při vyšších velikostech bude stránka zarovnána na střed okna prohlížeče) */
+@media screen and (min-width: 768px) and (max-width: 1200px){
+    body {
+        width: 100%;
+    }
+    /*scroll when overflow*/
+    html {
+        overflow-x: hidden;
+    }
+}
+body {
+    background-image: url('../img/bg/bg-body.svg');
+}
+#heyoooo {
+    /* color: white; */
+    background-image: url('../img/bg/bg-header.jpg');
+    /* padding: 0px 0 400px 0; */
+    text-align: center;
+    margin: auto;
+    position: relative; /* Сделаем relative, чтобы текст скрывался за меню при прокрутке */
+    z-index: 1; /* Порядок наложения ниже меню */
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+ }
+#heyoooo::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 50px; /* Высота вашего SVG-разделителя */
+    background-image: url('../img/custom/beers.png');
+    background-position:initial;
+    height: 29vh;
+    margin-top: 80vh;
+}
+
+header {
+    text-align: center;
+    margin: 1% 10% 0 10%;
+    border-left: 2px dotted green;
+    border-right: 2px dotted green;
+    background-color: white;
+}   
+
+main #about, header{
+    margin: 0 10% 0 10%;
+    border-left: 2px dotted green;
+    border-right: 2px dotted green;
+    background-color: white;
+}
+
+#header-title {
+    position: absolute;
+    top: 0;
+    padding-left: 20%;
+    color: white;
+    z-index: 1; /* Порядок наложения выше всего */
+    padding-top: 10%;
+    width: 40%;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+#header-title span{
+    display: block;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+    transition: opacity .5s cubic-bezier(0.39, 0.575, 0.565, 1);
+    opacity: 1;
+    font-size: 1em;
+    font-weight: bold;
+    text-shadow: 3px 3px 10px green;
+    font-family:'Calistoga', sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+html.scrolled #header-title span {
+    opacity: 0;
+}
+#header-title span:first-child { font-size: 6vw; }
+#header-title span:nth-child(2) { font-size: 4vw; }
+#header-title span:nth-child(3) { font-size: 1.3vw;}
+#header-title span:nth-child(4) { font-size: 3vw; text-transform: none; font-style: italic;}
+
+#header-title span:nth-child(2)::before, #header-title span:nth-child(2)::after {
+    content: ''; /* Необходимо для отображения псевдоэлементов */
+    position: absolute;
+    top: 50%; /* Выравниваем по центру относительно высоты span */
+    width: 15vw; /* Размер иконки */
+    height: 15vh; /* Размер иконки */
+    background-size: contain; /* Убедитесь, что иконка помещается полностью в размеры элемента */
+    background-repeat: no-repeat;
+    transform: translateY(-30%) ;
+}
+
+#header-title span:nth-child(2)::before {
+    left: 10%; /* Смещаем влево от текста, отрегулируйте по необходимости */
+    background-image: url('../img/custom/flag.svg'); /* Путь к вашей левой иконке */
+}
+
+#header-title span:nth-child(2)::after {
+    right: 10%; /* Смещаем вправо от текста, отрегулируйте по необходимости */
+    background-image: url('../img/custom/flag.svg'); /* Путь к вашей правой иконке */
+    transform: translateY(-30%) scaleX(-1);
+}
+
+#header-menu {
+    padding: 160px 0;
+    margin: auto;
+    display: grid;
+}
+nav {
+    display:grid;
+    border-top: 2px dotted green;
+    border-bottom: 2px dotted green;
+    color: white;
+    padding: 10px;
+    margin: auto;
+    width: 80%;
+    text-transform: uppercase;
+}
+#heyoooo a{
+    content: url('../img/custom/leaf.svg');
+    position: absolute;
+    transform: scale(0.5) rotate(90deg) translateX(-45%) translateY(73%) scaleX(-1); /* Уменьшим размер картинки */
+    top: 114vh; /* Подберите значение, чтобы картинка оказалась по центру меню */
+    
+}
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr)  repeat(3, 1fr);
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px; 
+}
+
+#header-menu nav ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    font-size: 1.5em;
+    font-family: 'Calistoga', sans-serif;
+    font-weight:200;
+  }
+
+
+nav a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+nav a:hover {
+    color: green;
+    transform: scale(1.1);
+}
+main #about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+main #about h2 {
+    font-size: 1em;
+    font-family: 'Calistoga', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: green;
+}
+main #about .heading span{
+    color: black;
+    font-size: 1.5em;
+    font-family: 'Spectral', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+}
+main .video-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main .references {
+    display: none;
+    
+}
+#team {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../img/bg/bg-team.jpg');
+    padding: 0;
+    margin: 0;
+}
+#team .heading {
+    align-items: center;
+    text-align: center;
+}
+#team .section-content{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+}
+#team .heading h2 {
+    font-size: 1.5em;
+    font-family: 'Calistoga', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: lightgreen;
+}
+#team .heading span {
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Calistroga', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+
+}
+#team .section-item{
+    height: 400px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    object-fit:fill;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    background-color: white;
+}
+#team .section-item p{
+    width: 70%;
+}
+#team .section-item img {
+    width: 270px;
+    height: 300px;
+}
+#team::before {
+    content: '';
+    height: 100px; /* Высота вашего SVG-разделителя */
+    margin: 0 0 100px 0;
+    background-image: url('../img/custom/hr.svg');
+}
